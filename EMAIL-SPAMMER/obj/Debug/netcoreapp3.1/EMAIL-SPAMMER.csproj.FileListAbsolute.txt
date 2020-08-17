@@ -11,9 +11,3 @@ C:\Users\suchencjusz\source\repos\EMAIL-SPAMMER\EMAIL-SPAMMER\obj\Debug\netcorea
 C:\Users\suchencjusz\source\repos\EMAIL-SPAMMER\EMAIL-SPAMMER\obj\Debug\netcoreapp3.1\EMAIL-SPAMMER.pdb
 C:\Users\suchencjusz\source\repos\EMAIL-SPAMMER\EMAIL-SPAMMER\obj\Debug\netcoreapp3.1\EMAIL-SPAMMER.genruntimeconfig.cache
 C:\Users\suchencjusz\source\repos\EMAIL-SPAMMER\EMAIL-SPAMMER\obj\Debug\netcoreapp3.1\EMAIL-SPAMMER.csprojAssemblyReference.cache
-C:\Users\suchencjusz\Desktop\SPAMGIT\EMAIL-SPAMMER\obj\Debug\netcoreapp3.1\EMAIL-SPAMMER.csprojAssemblyReference.cache
-C:\Users\suchencjusz\Desktop\SPAMGIT\EMAIL-SPAMMER\obj\Debug\netcoreapp3.1\EMAIL-SPAMMER.AssemblyInfoInputs.cache
-C:\Users\suchencjusz\Desktop\SPAMGIT\EMAIL-SPAMMER\obj\Debug\netcoreapp3.1\EMAIL-SPAMMER.AssemblyInfo.cs
-C:\Users\suchencjusz\Desktop\SPAMGIT\EMAIL-SPAMMER\obj\Debug\netcoreapp3.1\EMAIL-SPAMMER.csproj.CoreCompileInputs.cache
-C:\Users\suchencjusz\Desktop\SPAMGIT\EMAIL-SPAMMER\obj\Debug\netcoreapp3.1\EMAIL-SPAMMER.dll
-C:\Users\suchencjusz\Desktop\SPAMGIT\EMAIL-SPAMMER\obj\Debug\netcoreapp3.1\EMAIL-SPAMMER.pdb
