@@ -39,10 +39,10 @@ namespace EMAIL_SPAMMER
                     Console.WriteLine($"{DateTime.Now} - Email sended from {Program.user[i] + Program.domain}");
                     succes++;
                 }
-                catch
+                catch(Exception e)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine($"{DateTime.Now} - Email NOT sended! ({Program.user[i] + Program.domain})");
+                    Console.WriteLine($"{DateTime.Now} - Email NOT sended! ({Program.user[i] + Program.domain + e.Message})");
                     failure++;
                 }
             }
