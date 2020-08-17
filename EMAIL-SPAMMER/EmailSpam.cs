@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace EMAIL_SPAMMER
 {
-    class EmailSpam
+    public static class EmailSpam
     {
         static string[] topics, subjects;
         public static uint succes, failure;
@@ -45,18 +45,26 @@ namespace EMAIL_SPAMMER
                     Console.WriteLine($"{DateTime.Now} - Email NOT sended! ({Program.user[i] + Program.domain})");
                     failure++;
                 }
-
-                if(i > Program.accounts.Length)
-                    i = 0;
             }
         }
 
         public static void LoadData()
         {
-            topics = new string[File.ReadAllLines("topics.txt").Length];
-            subjects = new string[File.ReadAllLines("subjects.txt").Length];
-            topics = File.ReadAllLines("topics.txt");
-            subjects = File.ReadAllLines("subjects.txt");
+            if (File.Exists("topics.txt") || File.Exists("subjects.txt"))
+            {
+                topics = new string[File.ReadAllLines("topics.txt").Length];
+                subjects = new string[File.ReadAllLines("subjects.txt").Length];
+                topics = File.ReadAllLines("topics.txt");
+                subjects = File.ReadAllLines("subjects.txt");
+            }
+            else
+            {
+                File.Create("topics.txt");
+                File.Create("subjects.txt");
+                File.WriteAllText("topics.txt", string.Join("\r\n", new[] { "example topic", "second topic", "etc..."}));
+                File.WriteAllText("subjects.txt", string.Join("\r\n", new[] { "example subject", "next random subject", "etc..." }));
+                LoadData();
+            }
         }
     }
 }

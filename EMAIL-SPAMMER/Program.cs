@@ -8,7 +8,7 @@ using System.Reflection.Metadata;
 
 namespace EMAIL_SPAMMER
 {
-    class Program
+    public static class Program
     {
         public static string accountstxtpath, targetemail, smtpserver, domain;
         public static string[] user, password, accounts;
