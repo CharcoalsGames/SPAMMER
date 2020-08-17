@@ -20,7 +20,7 @@
  Program randommly choose email **topic** from `topics.txt`
  And the main **text** from `subjects.txt`
  
- ##If you using gmail...
+ ## If you using gmail...
  Remember https://myaccount.google.com/lesssecureapps
 
 
