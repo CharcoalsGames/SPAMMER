@@ -1,0 +1,4 @@
+smtp.gmail.com
+@gmail.com
+25
+C:\Users\suchencjusz\Desktop\SPAM EMAIL\accounts.txt

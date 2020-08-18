@@ -7,8 +7,8 @@ namespace EMAIL_SPAMMER
 {
     public static class Program
     {
-        public static string accountstxtpath, targetemail, smtpserver, domain;
-        public static string[] user, password, accounts;
+        public static string accountstxtpath, targetemailpath, smtpserver, domain;
+        public static string[] user, password, accounts, targets;
 
         static int threads = 100;
         static bool work = false;
@@ -27,8 +27,16 @@ namespace EMAIL_SPAMMER
 
             EmailSpam.LoadData();
 
-            Console.Write("Target email: ");
-            targetemail = Console.ReadLine();
+            Console.Write("Target emails path: ");
+            targetemailpath = Console.ReadLine().Replace("\"", "").Trim();
+            targets = File.ReadAllLines(targetemailpath);
+
+            Console.WriteLine("Targets: ");
+            Console.WriteLine();
+            for (int i = 0; i < targets.Length; i++)
+            {
+                Console.WriteLine(targets[i]);
+            }
 
             if (!File.Exists("config.txt"))
             {
