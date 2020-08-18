@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using System.Net.Mail;
-using System.Text;
-using System.Reflection.Metadata;
 
 namespace EMAIL_SPAMMER
 {
@@ -26,11 +23,31 @@ namespace EMAIL_SPAMMER
             };
             counter.Start();
 
+            Console.WriteLine("S P A M M E R");
+
             EmailSpam.LoadData();
 
-            Console.Write("Accounts path: ");
+            Console.Write("Target email: ");
+            targetemail = Console.ReadLine();
 
-            accountstxtpath = Console.ReadLine().Replace("\"", "").Trim();
+            if (!File.Exists("config.txt"))
+            {
+                Console.WriteLine("No config file detected, creating new one!");
+
+                Console.Write("Accounts path: ");
+                accountstxtpath = Console.ReadLine().Replace("\"", "").Trim();                
+
+                Console.Write("SMTP Server (smtp.gmail.com): ");
+                smtpserver = Console.ReadLine();
+                Console.Write("Domain (@gmail.com): ");
+                domain = Console.ReadLine();
+                Console.Write("Threads: ");
+                threads = int.Parse(Console.ReadLine());
+                File.WriteAllText("config.txt", string.Join("\r\n", new[] { smtpserver, domain, threads.ToString(), accountstxtpath }));
+            }
+            else
+                LoadConfig();
+
             accounts = File.ReadAllLines(accountstxtpath);
 
             user = new string[accounts.Length];
@@ -44,15 +61,15 @@ namespace EMAIL_SPAMMER
                 password[i] = help.Split(':')[1];
             }
 
-            Console.WriteLine($"Loaded {user.Length} accounts and {password.Length} passwords!");
-            Console.Write("Target email: ");
-            targetemail = Console.ReadLine();
-            Console.Write("SMTP Server (smtp.gmail.com): ");
-            smtpserver = Console.ReadLine();
-            Console.Write("Domain (@gmail.com): ");
-            domain = Console.ReadLine();
-            Console.Write("Threads: ");
-            threads = int.Parse(Console.ReadLine());
+            if (user.Length == password.Length)
+            {
+                Console.WriteLine($"Loaded {user.Length} users and {password.Length} passwords! Everything are good!");
+            }
+            else
+            {
+                Console.WriteLine($"Something went wrong with accounts, detected {user.Length} users and {password.Length} :O");
+                return;
+            }
 
             work = true;
 
@@ -69,7 +86,9 @@ namespace EMAIL_SPAMMER
             {
                 if (Console.ReadLine().Trim().ToLower() == "stop")
                 {
-                    Console.WriteLine("Stopping threads...");
+                    Console.WriteLine();
+                    Console.WriteLine("Stopping... this is can take a while...");
+                    Console.WriteLine();
                     work = false;
                     foreach (Thread t in workers)
                     {
@@ -78,8 +97,7 @@ namespace EMAIL_SPAMMER
                     break;
                 }
             }
-
-            Console.WriteLine("All threads stopped!");
+            Console.WriteLine("SPAMMER Stoped!");
             Console.ReadKey();
         }
 
@@ -90,6 +108,7 @@ namespace EMAIL_SPAMMER
                 Console.Title = $"Succes: {EmailSpam.succes} Failure: {EmailSpam.failure}";
             }
         }
+
         static void Worker()
         {
             while (work)
@@ -97,5 +116,15 @@ namespace EMAIL_SPAMMER
                  EmailSpam.SendEmail();
             }
         }
+
+        static void LoadConfig()
+        {
+            var ConfigTXT = File.ReadAllLines("config.txt");
+            smtpserver = ConfigTXT[0];
+            domain = ConfigTXT[1];
+            threads = int.Parse(ConfigTXT[2]);
+            accountstxtpath = ConfigTXT[3];
+            Console.WriteLine("Config loaded!");
+        }
     }
-}
+} 

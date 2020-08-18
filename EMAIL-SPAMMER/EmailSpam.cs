@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Net.Mail;
-using System.Text;
-using System.Threading;
 
 namespace EMAIL_SPAMMER
 {
@@ -56,6 +52,7 @@ namespace EMAIL_SPAMMER
                 subjects = new string[File.ReadAllLines("subjects.txt").Length];
                 topics = File.ReadAllLines("topics.txt");
                 subjects = File.ReadAllLines("subjects.txt");
+                Console.WriteLine("topics.txt and subjects.txt loaded!");
             }
             else
             {
@@ -63,7 +60,9 @@ namespace EMAIL_SPAMMER
                 File.Create("subjects.txt");
                 File.WriteAllText("topics.txt", string.Join("\r\n", new[] { "example topic", "second topic", "etc..."}));
                 File.WriteAllText("subjects.txt", string.Join("\r\n", new[] { "example subject", "next random subject", "etc..." }));
-                LoadData();
+                topics = File.ReadAllLines("topics.txt");
+                subjects = File.ReadAllLines("subjects.txt");
+                Console.WriteLine("Default topics and subjects loaded!");
             }
         }
     }
