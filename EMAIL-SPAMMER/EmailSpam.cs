@@ -13,43 +13,40 @@ namespace EMAIL_SPAMMER
         {
             Random rnd = new Random();
 
-            for (int y = 0; y < Program.targets.Length + 1; y++)
+            for (int i = 0; i < Program.accounts.Length; i++)
             {
-                for (int i = 0; i < Program.accounts.Length; i++)
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient(Program.smtpserver);
+
+                mail.From = new MailAddress(Program.user[i] + Program.domain);
+                mail.To.Add(Program.targetemail);
+
+                mail.Subject = topics[rnd.Next(1, topics.Length - 1)].ToString();
+                mail.Body = subjects[rnd.Next(1, subjects.Length - 1)].ToString();
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential(Program.user[i], Program.password[i]);
+                SmtpServer.EnableSsl = true;
+
+                try
                 {
-                    MailMessage mail = new MailMessage();
-                    SmtpClient SmtpServer = new SmtpClient(Program.smtpserver);
-
-                    mail.From = new MailAddress(Program.user[i] + Program.domain);
-                    mail.To.Add(Program.targets[y]);
-
-                    mail.Subject = topics[rnd.Next(1, topics.Length - 1)].ToString();
-                    mail.Body = subjects[rnd.Next(1, subjects.Length - 1)].ToString();
-
-                    SmtpServer.Port = 587;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential(Program.user[i], Program.password[i]);
-                    SmtpServer.EnableSsl = true;
-
-                    try
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
-                        SmtpServer.Send(mail);
-                        Console.WriteLine($"{DateTime.Now} - Email sended from {Program.user[i] + Program.domain} to {Program.targets[y]} - {mail.Subject}");
-                        succes++;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine($"{DateTime.Now} - Email NOT sended! {Program.user[i] + Program.domain} - {e.Message}");
-                        failure++;
-                    }
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    SmtpServer.Send(mail);
+                    Console.WriteLine($"{DateTime.Now} - Email sended from {Program.user[i] + Program.domain} - {mail.Subject}");
+                    succes++;
+                }
+                catch(Exception e)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine($"{DateTime.Now} - Email NOT sended! ({Program.user[i] + Program.domain} - {e.Message})");
+                    failure++;
                 }
             }
         }
 
         public static void LoadData()
         {
-            if (File.Exists("topics.txt") && File.Exists("subjects.txt"))
+            if (File.Exists("topics.txt") || File.Exists("subjects.txt"))
             {
                 topics = new string[File.ReadAllLines("topics.txt").Length];
                 subjects = new string[File.ReadAllLines("subjects.txt").Length];
