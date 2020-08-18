@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\suchencjusz\\Desktop\\SPAMGIT\\EMAIL-SPAMMER\\EMAIL-SPAMMER.csproj",
+      "projectUniqueName": "C:\\Users\\suchencjusz\\Desktop\\SPAMMER\\EMAIL-SPAMMER\\EMAIL-SPAMMER.csproj",
       "projectName": "EMAIL-SPAMMER",
-      "projectPath": "C:\\Users\\suchencjusz\\Desktop\\SPAMGIT\\EMAIL-SPAMMER\\EMAIL-SPAMMER.csproj",
+      "projectPath": "C:\\Users\\suchencjusz\\Desktop\\SPAMMER\\EMAIL-SPAMMER\\EMAIL-SPAMMER.csproj",
       "packagesPath": "C:\\Users\\suchencjusz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\suchencjusz\\Desktop\\SPAMGIT\\EMAIL-SPAMMER\\obj\\",
+      "outputPath": "C:\\Users\\suchencjusz\\Desktop\\SPAMMER\\EMAIL-SPAMMER\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\suchencjusz\\AppData\\Roaming\\NuGet\\NuGet.Config",
