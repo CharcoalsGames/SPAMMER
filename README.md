@@ -1,7 +1,7 @@
 
 # SPAMMER - Easiest solution for spamming
 ![.NET Core](https://github.com/suchy2020/SPAMMER/workflows/.NET%20Core/badge.svg?branch=master)
-[![CodeFactor](https://www.codefactor.io/repository/github/suchy2020/spammer/badge)](https://www.codefactor.io/repository/github/suchy2020/spammer)
+[![Build Status](https://travis-ci.org/Wegiel-Studio/SPAMMER.svg?branch=master)](https://travis-ci.org/Wegiel-Studio/SPAMMER)
 
 ## Simple C# Program, email spammer.
 
