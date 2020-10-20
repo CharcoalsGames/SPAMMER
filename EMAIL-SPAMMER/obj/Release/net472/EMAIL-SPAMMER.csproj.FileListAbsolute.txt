@@ -1,0 +1,9 @@
+C:\Users\suchencjusz\Desktop\GITSPAM\SPAMMER\EMAIL-SPAMMER\bin\Release\net472\EMAIL-SPAMMER.exe.config
+C:\Users\suchencjusz\Desktop\GITSPAM\SPAMMER\EMAIL-SPAMMER\bin\Release\net472\EMAIL-SPAMMER.exe
+C:\Users\suchencjusz\Desktop\GITSPAM\SPAMMER\EMAIL-SPAMMER\bin\Release\net472\EMAIL-SPAMMER.pdb
+C:\Users\suchencjusz\Desktop\GITSPAM\SPAMMER\EMAIL-SPAMMER\obj\Release\net472\EMAIL-SPAMMER.csprojAssemblyReference.cache
+C:\Users\suchencjusz\Desktop\GITSPAM\SPAMMER\EMAIL-SPAMMER\obj\Release\net472\EMAIL-SPAMMER.AssemblyInfoInputs.cache
+C:\Users\suchencjusz\Desktop\GITSPAM\SPAMMER\EMAIL-SPAMMER\obj\Release\net472\EMAIL-SPAMMER.AssemblyInfo.cs
+C:\Users\suchencjusz\Desktop\GITSPAM\SPAMMER\EMAIL-SPAMMER\obj\Release\net472\EMAIL-SPAMMER.csproj.CoreCompileInputs.cache
+C:\Users\suchencjusz\Desktop\GITSPAM\SPAMMER\EMAIL-SPAMMER\obj\Release\net472\EMAIL-SPAMMER.exe
+C:\Users\suchencjusz\Desktop\GITSPAM\SPAMMER\EMAIL-SPAMMER\obj\Release\net472\EMAIL-SPAMMER.pdb
