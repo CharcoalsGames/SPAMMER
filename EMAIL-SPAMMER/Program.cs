@@ -10,6 +10,7 @@ namespace EMAIL_SPAMMER
         public static string accountstxtpath, targetemail, smtpserver, domain;
         public static string[] user, password, accounts;
 
+        public static int smtpporttls;
         static int threads = 100;
         static bool work = false;
 
@@ -43,7 +44,9 @@ namespace EMAIL_SPAMMER
                 domain = Console.ReadLine();
                 Console.Write("Threads: ");
                 threads = int.Parse(Console.ReadLine());
-                File.WriteAllText("config.txt", string.Join("\r\n", new[] { smtpserver, domain, threads.ToString(), accountstxtpath }));
+                Console.Write("SMTP Port: ");
+                smtpporttls = int.Parse(Console.ReadLine());
+                File.WriteAllText("config.txt", string.Join("\r\n", new[] { smtpserver, domain, threads.ToString(), accountstxtpath, smtpporttls.ToString() }));
             }
             else
                 LoadConfig();
@@ -124,6 +127,7 @@ namespace EMAIL_SPAMMER
             domain = ConfigTXT[1];
             threads = int.Parse(ConfigTXT[2]);
             accountstxtpath = ConfigTXT[3];
+            smtpporttls = int.Parse(ConfigTXT[4]);
             Console.WriteLine("Config loaded!");
         }
     }

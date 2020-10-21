@@ -24,7 +24,7 @@ namespace EMAIL_SPAMMER
                 mail.Subject = topics[rnd.Next(1, topics.Length - 1)].ToString();
                 mail.Body = subjects[rnd.Next(1, subjects.Length - 1)].ToString();
 
-                SmtpServer.Port = 587;
+                SmtpServer.Port = Program.smtpporttls;
                 SmtpServer.Credentials = new System.Net.NetworkCredential(Program.user[i], Program.password[i]);
                 SmtpServer.EnableSsl = true;
 
@@ -52,7 +52,7 @@ namespace EMAIL_SPAMMER
                 subjects = new string[File.ReadAllLines("subjects.txt").Length];
                 topics = File.ReadAllLines("topics.txt");
                 subjects = File.ReadAllLines("subjects.txt");
-                Console.WriteLine("topics.txt and subjects.txt loaded!");
+                Console.WriteLine($"topics.txt and subjects.txt loaded! Topics:{topics.Length} Subjects:{subjects.Length}");
             }
             else
             {
