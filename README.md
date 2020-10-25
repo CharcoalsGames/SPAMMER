@@ -1,6 +1,5 @@
 
 # SPAMMER - Easiest solution for spamming
-![.NET Core](https://github.com/suchy2020/SPAMMER/workflows/.NET%20Core/badge.svg?branch=master)
 [![Build Status](https://travis-ci.org/Wegiel-Studio/SPAMMER.svg?branch=master)](https://travis-ci.org/Wegiel-Studio/SPAMMER)
 
 ## Simple C# Program, email spammer.
@@ -12,7 +11,9 @@
  5. And finally threads.
 
 **TO DO:**
- 1. Targets file
+ + Target file,
+ + Colors,
+ + More safe 
 
 ## Example accounts file
 
