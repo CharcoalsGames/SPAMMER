@@ -16,6 +16,8 @@ namespace EMAIL_SPAMMER
 
         static void Main(string[] args)
         {
+            logs.CreateFile();
+
             Console.ForegroundColor = ConsoleColor.Gray;
 
             Thread counter = new Thread(setTitle)
@@ -47,6 +49,8 @@ namespace EMAIL_SPAMMER
                 Console.Write("SMTP Port: ");
                 smtpporttls = int.Parse(Console.ReadLine());
                 File.WriteAllText("config.txt", string.Join("\r\n", new[] { smtpserver, domain, threads.ToString(), accountstxtpath, smtpporttls.ToString() }));
+
+                
             }
             else
                 LoadConfig();
